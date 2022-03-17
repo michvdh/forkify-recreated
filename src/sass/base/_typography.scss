@@ -1,0 +1,146 @@
+// ----------- General -----------
+
+html {
+  font-size: 62.5%;
+  font-family: 'Nunito Sans', sans-serif;
+  color: $main-black;
+}
+
+.text {
+  font-size: 1.5rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  color: $main-black;
+
+  &--page {
+    & .text--pagination {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $accent;
+    }
+  }
+
+  &--rounded {
+    &--big {
+      color: $white;
+    }
+
+    &--small {
+      text-transform: capitalize;
+      color: $accent;
+    }
+  }
+
+  &--close {
+    text-transform: lowercase;
+    font-size: 3.5rem;
+    font-family: inherit;
+    font-weight: 400;
+  }
+}
+
+
+
+// ----------- Search Results -----------
+
+.result {
+  &__item {
+    &__desc {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &__name {
+      color: $accent;
+    }
+
+    &__author {
+      color: $sub-black;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__copyright__text {
+    font-size: 1.3rem;
+    color: $sub-black;
+
+    & a {
+      color: $sub-black;
+    }
+  }
+}
+
+
+// ----------- Header -----------
+
+.header {
+  &__container--nav .text {
+    text-transform: uppercase;
+    // font-weight: 400;
+  }
+
+  .search__field {
+    &::placeholder {
+      color: $main-black;
+      opacity: 0.4;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.bookmarks-preview {
+  span {
+    // font-size: 1.3rem;
+    font-weight: 400;
+    // text-transform: initial;
+    text-align: left;
+  }
+}
+
+
+// ----------- Recipe -----------
+
+.banner__text {
+  color: $white;
+  text-transform: uppercase;
+  font-size: 2rem;
+
+  @include respond(screen-480) {
+    font-size: 2.4rem;
+  } 
+
+  @include respond(screen-620) {
+    font-size: 2.8rem;
+  }
+}
+
+.recipe__header {
+  text-transform: uppercase;
+  color: $accent;
+  font-size: 2rem;
+}
+
+.message {
+  span {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}
+
+
+// ----------- Upload -----------
+.upload {
+  &__list {
+    &__header {
+      font-weight: 700;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+    }
+
+    & .text{
+      font-weight: 600;
+    }
+  }
+}

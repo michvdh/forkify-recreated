@@ -1,0 +1,106 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // position: relative;
+  background: $gradient-complete;
+  // background-repeat: no-repeat;
+  background-size: cover;
+
+  @include respond(screen-620) {
+    box-sizing: initial;
+    padding: 6.5% 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include respond(screen-1024) {
+    padding: 0;
+  }
+
+  @include respond(screen-1250) {
+    padding: 5% 1%;
+  }
+}
+
+main {
+  background-color: $background-mid;
+  position: relative;
+  min-height: 108rem;
+  transition: all 0.5s;
+
+  @include respond(screen-620) {
+    min-height: 115rem;
+  }
+
+  .contents {
+    .result {
+      left: 0;
+      transition: all 1s;
+      position: absolute;
+      z-index: 20;
+
+      @include respond(screen-1024) {
+        position: initial;
+      }
+    }
+    
+    @include respond(screen-1024) {
+      position: initial;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+.app-container {
+  overflow: hidden;
+  background-color: $background-light;
+
+  @include respond(screen-620) {
+    width: 62rem;
+    border-radius: 0.80rem;
+  }
+
+  @include respond(screen-1024) {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  @include respond(screen-1250) {
+    width: 125rem;
+    border-radius: 0.80rem;
+  }
+}
+
+.container {
+  padding: 1.5rem 2.5rem;
+
+  &__secondary {
+    // position: relative;
+    width: 90%; 
+    margin: 0 auto;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.spinner {
+  text-align: center;
+
+  svg {
+    animation: spinner 3s linear infinite;
+  }
+
+  &--search {}
+
+  &--recipe {
+    padding-top: 3rem;
+  }
+}

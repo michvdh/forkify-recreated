@@ -1,0 +1,164 @@
+.header {
+  background-color: #f9f5f3;
+  
+  &__container {
+    position: relative;
+    display: grid;
+    justify-content: space-between;
+    padding: 0 3rem 2.5rem 3rem;
+
+    grid-template-areas:
+      'header-logo header-nav header-nav'
+      'header-search header-search header-search';
+
+    @include respond(screen-620) {
+      padding: 0 3.5rem 2.5rem 3.5rem;
+    }
+
+    @include respond(screen-1024) {
+      grid-template-areas:
+        'header-logo header-search header-search header-search header-nav';
+      padding: 0 3.5rem;
+    }
+
+    &--logo { 
+      grid-area: header-logo;
+      display: flex;
+      align-items: center;
+
+      & .logo-main {
+        width: 10rem;
+        
+        @include respond(screen-1024) {
+          width: 13rem;
+        }
+      }
+    }
+
+    &--search { 
+      grid-area: header-search;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      @include respond(screen-1024) {
+        justify-content: center;
+        align-items: center;
+      }
+      
+      & .search {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        align-items: center;
+        background-color: $background-light;
+        border-radius: 5rem;
+        padding-left: 1.5rem;
+        width: 100%;
+        height: 5.5rem;
+        transition: transform 0.2s;
+
+        &:focus-within {
+          
+          transform: translateY(-2px);
+        }
+
+        @include respond(screen-480) {
+          width: 100%;
+        }
+
+        @include respond(screen-620) {
+          width: 85%;
+        }
+
+        @include respond(screen-1024) {
+          width: 90%;
+          margin-top: 0;
+        }
+
+        &__field {
+          background: none;
+          padding: 1.5rem;
+          border: none;
+          position: relative;
+          width: 70%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    &--nav { // Add Recipe and Bookmarks button
+      grid-area: header-nav;
+      display: flex;
+      justify-content: right;
+      // margin-top: 2rem; // set this only for smaller devices
+
+      @include respond(screen-1024) {
+        height: 100%;
+      }
+
+      & .btn {
+        transition: all 0.3s;
+      }
+
+      & .btn--bookmarks{
+
+        &:hover {
+          & .bookmarks-preview {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.logo { // to be deleted in css and html
+  width: 4.6rem;
+  display: none;
+}
+
+.bookmarks-preview {
+  max-width: 45rem;
+  min-width: 36rem;
+  position: absolute;
+  right: 0;
+  top: 8.5rem;
+  background-color: $background-light;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s 0.2s;
+  
+  @include respond(screen-620) {
+    top: 10.5rem;
+  }
+  
+
+  &__list {
+    margin: 1rem 0;
+    
+    li {
+      margin: 0.2rem 0;
+    }
+
+    &--empty {
+      padding: 3rem;
+
+      @include respond(screen-480) {
+        padding: 6rem;
+      }
+    }
+
+    &__message {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+  }
+}
+

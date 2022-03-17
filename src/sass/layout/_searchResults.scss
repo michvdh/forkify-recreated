@@ -1,0 +1,74 @@
+.result {
+  background-color: $background-light;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  
+  &__main {
+    min-height: 85rem; // this is 8.5rem per <li> x 10 <li>'s
+    
+    margin-bottom: 3rem;
+    @include respond(screen-620) {
+      margin-bottom: 10rem;
+    }
+  }
+
+  &__items {
+    
+  }
+
+  &__item { // specific results
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+
+    &--test { // to be removed
+      background-color: $background-mid;
+    }
+  
+    &__logo {
+      width: 5.5rem;
+    }
+  
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2.2rem;
+      row-gap: 0.4rem;
+
+      .text {
+        max-width: 20rem;
+
+        @include respond(screen-480) { max-width: 30rem; }
+        @include respond(screen-1024) { max-width: 15rem; }
+        @include respond(screen-1250) { max-width: 18rem; }
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  
+    &:hover {
+      background-color: $background-mid;
+      cursor: pointer;
+    }
+  }
+
+  &__pagination {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  & .message {
+    display: flex;
+    column-gap: 1rem;
+    justify-content: center;
+    padding: 3rem;
+  }
+}
+
+
+

@@ -1,0 +1,17 @@
+// variables for texts, icons, borders
+$main-black: #615551;
+$sub-black: #918581;
+$accent: #f38e82;
+$sub-gray: #ddd;
+$white: #ffffff;
+
+// variables for section, divs, input field, hover, container elements
+$background-light: #ffffff;
+$background-mid: #f9f5f3; // same with header
+$background-dark: #f2efee; // same with recipe ingredients
+$background-dark-opaque: rgba(0, 0, 0, 0.4);
+
+// variables for gradient
+$gradient-start: rgb(251, 219, 137, 1);
+$gradient-end: rgb(244, 137, 130, 1);
+$gradient-complete: linear-gradient(351deg, $gradient-end 49%, $gradient-start 90%);
