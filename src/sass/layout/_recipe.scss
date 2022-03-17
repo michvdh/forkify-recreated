@@ -1,0 +1,181 @@
+.recipe {
+  background-color: $background-mid;
+  .container {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .servings {
+    padding-top: 6rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+
+.message { // starting message when there is no loaded recipe yet
+  min-height: 85rem;
+  
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    column-gap: 1rem;
+
+    @include respond(screen-560) {
+      justify-content: center;
+    }
+  }
+}
+
+.banner {
+  & figure {
+    // background-size: cover;
+    height: 32rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      position: relative;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -80%) skewY(-6deg);
+      
+      // top: 250%;
+      text-align: center;
+      width: 90%;
+      // margin: 0 auto;
+      line-height: 5.5rem;
+
+      @include respond(screen-480) {
+        width: 80%;
+      }
+
+      @include respond(screen-620) {
+        width: 50%;
+      }
+
+      @include respond(screen-1024) {
+        // position: relative;
+        // top: -18%;
+        // left: 50%;
+        // bottom: 0;
+      }
+      
+    }
+  }
+
+  &__text {
+    box-sizing: initial;
+    background-image: $gradient-complete;
+    padding: 1.5rem 2.5rem;
+    -webkit-box-decoration-break: clone;
+  }
+}
+
+/* -------------------------*/
+
+.servings {
+  background-color: $background-mid;
+  padding: inherit 3rem;
+
+  .container__secondary {
+
+    @include respond(screen-560) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .container__tertiary {
+    display: flex;
+    flex-direction: column;
+
+    @include respond(screen-560) {
+      flex-direction: row;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    
+    & .text {
+      margin-left: 1rem;
+      margin-right: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
+  
+  &__amount {
+    // margin-left: 3rem;
+
+    & .btn {
+      margin-right: 0.4rem;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+}
+
+/* -------------------------*/
+
+.ingredients {
+  background-color: $background-dark;
+
+  &__list {
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    row-gap: 2rem;
+
+    @include respond(screen-560) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 10%;
+    }
+  }
+
+  &__item {
+    display: flex;
+
+    & .text {
+      margin-left: 2rem;
+    }
+  }
+}
+
+/* -------------------------*/
+
+.directions {
+  background-color: $background-mid;
+
+  & div {
+    // text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  & .btn--directions {
+    margin: 0 auto;
+    margin-top: 4rem;
+  }
+}
+
+/* -------------------------*/

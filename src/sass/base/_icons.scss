@@ -1,0 +1,30 @@
+.icon {
+  &--white { fill: $white; }
+  &--accent { fill: $accent; }
+  &--dark { fill: $main-black; }
+
+  &--xs { 
+    width: 1.5rem;
+    height: 1.5rem;
+  } // page
+
+  &--small {
+    width: 2rem;
+    height: 2rem;
+  } // checkmark, direction, + -
+
+  &--med {
+    width: 2.5rem;
+    height: 2.5rem;
+  } // timer, users, addrecipe, bookmarks, upload, search
+
+  &--large {
+    width: 3rem;
+    height: 3rem;
+  } // addbookmark, user, smile
+
+  &--xl {
+    width: 6em;
+    height: 6rem;
+  } // spinner
+}

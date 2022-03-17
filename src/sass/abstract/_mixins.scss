@@ -1,0 +1,28 @@
+@mixin respond($breakpoint) {
+  // size-1 is default -- starts at 360px width
+
+  @if $breakpoint == screen-480 {
+    @media only screen and (min-width: 480px) { @content };
+  }
+
+  @if $breakpoint == screen-520 {
+    @media only screen and (min-width: 520px) { @content };
+  }
+
+  @if $breakpoint == screen-560 {
+    @media only screen and (min-width: 560px) { @content };
+  }
+
+  @if $breakpoint == screen-620 {
+    @media only screen and (min-width: 620px) { @content };
+  }
+
+  @if $breakpoint == screen-1024 {
+    @media only screen and (min-width: 1024px) { @content };
+  }
+
+  @if $breakpoint == screen-1250 {
+    @media only screen and (min-width: 1250px) { @content };
+  }
+
+}
