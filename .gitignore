@@ -1,3 +1,5 @@
 node_modules
 dist
 .parcel-cache
+forkify-recreated_key
+forkify-recreated_key.pub
