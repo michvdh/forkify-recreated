@@ -17,25 +17,26 @@
 
 // if search is clicked and field is empty, do nothing
 
-const resultSection = document.querySelector('.result');
-const searchBtn = document.querySelector('.btn--search');
-const searchField = document.querySelector('.search__field');
-const searchResultList = document.querySelector('.result__list');
 
-const displaySearchResult = function(leftValue) {
-  resultSection.style.left = leftValue;
-}
+// const resultSection = document.querySelector('.result');
+// const searchBtn = document.querySelector('.btn--search');
+// const searchField = document.querySelector('.search__field');
+// const searchResultList = document.querySelector('.result__list');
 
-searchResultList.addEventListener('click', function(e) {
-  e.preventDefault();
+// const displaySearchResult = function(leftValue) {
+//   resultSection.style.left = leftValue;
+// }
 
-  if(e.target.classList.contains('res__item')) {
-    displaySearchResult('-200%');
-  }
-});
+// searchResultList.addEventListener('click', function(e) {
+//   e.preventDefault();
 
-searchField.addEventListener('click', () => displaySearchResult('0'));
-searchBtn.addEventListener('click', () => displaySearchResult('0'));
+//   if(e.target.classList.contains('res__item')) {
+//     displaySearchResult('-200%');
+//   }
+// });
+
+// searchField.addEventListener('click', () => displaySearchResult('0'));
+// searchBtn.addEventListener('click', () => displaySearchResult('0'));
 
 
 
@@ -47,6 +48,7 @@ searchBtn.addEventListener('click', () => displaySearchResult('0'));
 2. when submit button is clicked, clear form
 */
 
+/*
 const addRecipeBtn = document.querySelector('.btn--add-recipe');
 const uploadForm = document.querySelector('.upload');
 const uploadeCloseBtn = document.querySelector('.btn--close');
@@ -66,3 +68,4 @@ const uploadDisplayState = function(vis, op) {
 addRecipeBtn.addEventListener('click', () => uploadDisplayState('visible', '1'));
 uploadeCloseBtn.addEventListener('click', () => uploadDisplayState('hidden', '0'));
 overlay.addEventListener('click', () => uploadDisplayState('hidden', '0'));
+*/

@@ -6,8 +6,16 @@ html {
   color: $main-black;
 }
 
+a {
+  text-decoration: none;
+}
+
 .text {
   font-size: 1.5rem;
+
+  &--right {
+    color: $white;
+  }
 }
 
 .btn {

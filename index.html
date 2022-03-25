@@ -61,19 +61,23 @@
                     <span>No bookmarks yet. Find a nice recipe and bookmark it :)</span>
                   </div>
                 </li>
-                <li class="result__item container result__item--test">
-                  <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc">
-                    <span class="text result__item__name">Homemade Pizzaaa asdasdas asdasdas</span>
-                    <span class="text result__item__author">Simply Recipes</span>
-                  </div>
+                <li class="result__item res__item">
+                  <a class="result__item__link res__item container" href="#">
+                    <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
+                    <div class="result__item__desc">
+                      <span class="text result__item__name">Homemade Pizzaaa asdasdas asdasdas</span>
+                      <span class="text result__item__author">Simply Recipes</span>
+                    </div>
+                  </a>
                 </li>
-                <li class="result__item container">
-                  <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc">
-                    <span class="text result__item__name">Homemade Pizza</span>
-                    <span class="text result__item__author">Simply Recipes</span>
-                  </div>
+                <li class="result__item res__item">
+                  <a class="result__item__link res__item container" href="#">
+                    <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
+                    <div class="result__item__desc">
+                      <span class="text result__item__name">Homemade Pizzaaa asdasdas asdasdas</span>
+                      <span class="text result__item__author">Simply Recipes</span>
+                    </div>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -87,7 +91,6 @@
           <div class="result__main">
             <!-- Loading icon -->
             <div class="spinner spinner--search hidden">
-              <!-- css is in base.scss -->
               <svg class="icon icon--accent icon--xl">
                 <use href="src/img/icons.svg#icon-loader"></use>
               </svg>
@@ -98,9 +101,9 @@
               </svg>
               <span class="text">No recipes found for your query! Please try again ;)</span>
             </div>
-            <!-- Search result -->
+            <!-- Search result -->  
             <div class="result__items">
-              <ul class="result__list">
+              <!-- <ul class="result__list">
                 <li class="result__item container result__item--test res__item">
                   <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
                   <div class="result__item__desc res__item">
@@ -171,7 +174,7 @@
                     <span class="text result__item__author res__item">Simply Recipes</span>
                   </div>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
           <!-- Pagination -->
@@ -205,19 +208,18 @@
               <span class="text">Start by searching for a recipe or an ingredient. Have fun!</span>
             </div>
           </section>
+
           <!-- Loading icon -->
-          <div class=" spinner spinner--recipe hidden">
-            <!-- css is in base.scss -->
+          <!-- <div class="spinner spinner--recipe hidden">
             <svg class="icon icon--accent icon--xl">
               <use href="src/img/icons.svg#icon-loader"></use>
             </svg>
-          </div>
-          <section class="banner">
-            <!-- <div style="background-image: url('src/img/pizza-temp.jpeg');"> -->
+          </div> -->
+
+          <!-- <section class="banner">
             <figure>
               <img src="src/img/pizza-temp.jpeg" alt="">
               <h1><span class="text banner__text">CAULIFLOWER PIZZA CRUST (WITH BBQ CHICKEN PIZZA)</span></h1>
-              <!-- <h1><span class="text banner__text">Homemade Pizza</span></h1> -->
             </figure>
           </section>
           <section class="servings container">
@@ -249,7 +251,7 @@
               <div class="servings__nav">
                 <button class="btn btn--inactive btn--user">
                   <svg class="icon icon--dark icon--med">
-                    <use href="src/img/icons.svg#icon-user"></use> <!-- show this only if recipe is uploaded by a user -->
+                    <use href="src/img/icons.svg#icon-user"></use>
                   </svg>
                 </button>
                 <button class="btn btn--circle btn--add-bookmark">
@@ -303,7 +305,7 @@
                 </svg>
               </button>
             </div>
-          </section>
+          </section> -->
         </section>
       </div>
       <!-- Upload form -->
