@@ -5,9 +5,7 @@
 }
 
 body {
-  // position: relative;
   background: $gradient-complete;
-  // background-repeat: no-repeat;
   background-size: cover;
 
   @include respond(screen-620) {
@@ -39,7 +37,7 @@ main {
 
   .contents {
     .result {
-      left: 0;
+      left: -200%;
       transition: all 1s;
       position: absolute;
       z-index: 20;
@@ -81,7 +79,6 @@ main {
   padding: 1.5rem 2.5rem;
 
   &__secondary {
-    // position: relative;
     width: 90%; 
     margin: 0 auto;
   }
@@ -93,14 +90,26 @@ ul {
 
 .spinner {
   text-align: center;
+  display: flex;
+  justify-content: center;
 
   svg {
     animation: spinner 3s linear infinite;
   }
 
-  &--search {}
+  &--search {
+    padding-top: 4rem;
+  }
 
   &--recipe {
-    padding-top: 3rem;
+    padding-top: 7rem;
   }
+}
+
+.message {
+  display: flex;
+  column-gap: 1rem;
+  justify-content: center;
+  padding: 3rem;
+  text-align: left;
 }

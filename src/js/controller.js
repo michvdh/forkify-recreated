@@ -1,80 +1,96 @@
 import * as model from './model.js';
-import recipeView from './views/RecipeView.js';
-import searchResultView from './views/SearchResultView.js';
+import recipeView from './views/recipeView.js';
+import searchResultView from './views/searchResultView.js';
+import paginationView from './views/paginationView.js';
+import bookmarksView from './views/bookmarksView.js';
+import uploadView from './views/uploadView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-const searchBtn = document.querySelector('.btn--search');
-
-
 const controlRecipes = async function(targetRecipeID) {
-  await model.loadRecipeData(targetRecipeID);
-  recipeView.updateHTML(model.state.recipe);
-}
+  try {
+    recipeView.renderSpinner();
+    await model.loadRecipeData(targetRecipeID);
+    recipeView.updateHTML(model.state.recipe);
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+    // searchResultView.highlightActiveRecipe(model.state.recipe.id);
 
-const controlSearchResult = async function(e) {
-  e.preventDefault();
+  } catch(err) {
 
-  const searchInput = searchResultView.getSearchInput();
-  await model.loadSearchResult(searchInput);
-  console.log(model.state.search.recipe);
-  searchResultView.updateHTML(model.state.search.recipe);
-  controlSearchResultSliderEffect();
-}
-
-const controlPagination = function() {
-
-}
-
-const controlSearchResultSliderEffect = function() {
-  // when in smaller devices, this creates a slider effect that will show or hide the search result section
-  
-  const resultSection = document.querySelector('.result');
-  const searchBtn = document.querySelector('.btn--search');
-  const searchField = document.querySelector('.search__field');
-  const searchResultList = document.querySelector('.result__list');
-
-  const displaySearchResult = function(leftValue) {
-    resultSection.style.left = leftValue;
   }
-
-  searchResultList.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    if(e.target.classList.contains('res__item')) {
-      displaySearchResult('-200%');
-      const targetRecipeID = e.target.closest('.result__item__link')?.getAttribute('href').substring(1);
-      controlRecipes(targetRecipeID);
-    }
-  });
-
-  searchField.addEventListener('click', () => displaySearchResult('0'));
-  searchBtn.addEventListener('click', () => displaySearchResult('0'));
 }
+
+
+const controlSearchResult = async function(searchInput) {
+  searchResultView.renderSpinner();
+  await model.loadAllSearchResult(searchInput);
+
+  const currentPage = model.state.search.currentPage;
+  const totalPages = model.state.search.totalPages;
+
+  if(totalPages > 0) {
+    searchResultView.updateHTML(model.loadSearchResultDisplay());
+    paginationView.updateHTML(currentPage, totalPages);
+    paginationView.btnHandler(currentPage, controlPagination);
+    searchResultView.renderSliderAndIngredients(controlRecipes);
+  } else {
+    searchResultView.renderErrorMessage();
+  }
+}
+
+
+const controlPagination = function(newCurrentPage) {
+  model.updateCurrentPage(newCurrentPage);
+  searchResultView.updateHTML(model.loadSearchResultDisplay());
+  searchResultView.renderSliderAndIngredients(controlRecipes);
+  paginationView.updateHTML(newCurrentPage, model.state.search.totalPages);
+  paginationView.btnHandler(newCurrentPage, controlPagination);
+}
+
+
+const controlServings = function(newServings) {
+  model.updateServings(newServings);
+  recipeView.updateNewValuesOnly(model.state.recipe);
+}
+
+const controlAddBookmarks = function() {
+  model.addBookmark(model.state.recipe);
+  bookmarksView.updateHTML(model.state.bookmarks);
+  recipeView.updateNewValuesOnly(model.state.recipe);
+  bookmarksView.renderSliderAndIngredients(controlRecipes);
+}
+
+const controlBookmarksInitLocalStorage = function() {
+  // for some reason, state.recipe keeps getting a "bookmarked: true" value. We're using this function to clear the content of state.recipe
+  model.state.recipe = {}
+  bookmarksView.updateHTML(model.state.bookmarks);
+}
+
+const controlUploadRecipe = async function(data) {
+  uploadView.renderSpinner();
+  await model.addRecipe(data);
+  recipeView.updateHTML(model.state.recipe);
+  bookmarksView.updateHTML(model.state.bookmarks);
+
+  const uploadIndicator = document.querySelector('.upload-indicator');
+
+  uploadIndicator.classList.remove('invisible');
+
+  window.history.pushState(null, '', `#${model.state.recipe.id}`);
+  uploadView.renderMessage();
+  setTimeout(uploadView.toggleUploadWindow, 1000);
+}
+
 
 const init = function() { 
-  searchBtn.addEventListener('click', e => controlSearchResult(e));
+  controlBookmarksInitLocalStorage();
+  searchResultView.getSearchInput(controlSearchResult);
+  recipeView.updateServings(controlServings);
+  bookmarksView.setBookmarkHandler(controlAddBookmarks);
+  bookmarksView.renderSliderAndIngredients(controlRecipes);
+  // uploadView.setUploadDisplayHander();
+  uploadView.setFormSubmitHandler(controlUploadRecipe);
 }
 
 init();
-
-
-/*
-C - set addEventListener when search button is clicked in init(). When search button is clicked, it will get the value of search field in view then pass it to model, then gets the data from model, then update the search results section
-
-V - search button is clicked
-V - eventListener is triggered and returns the value of the input field to Controller
-
-C - checks the passed value. If empty, don't do anything. If it contains a value, pass to Model
-
-M - with the passed value, model retrieves data from API
-M - model formats the data
-M - model passes the data to Controller
-
-C - controller passes the value to View
-
-V - view makes the update in search results section
-
-
-*/

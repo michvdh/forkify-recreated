@@ -1,11 +1,13 @@
 .upload {
   position: absolute;
-  top: 10%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
 
   padding: 1.5rem 1rem;
   width: 95%;
+  // min-height: 50.82rem;
+  min-height: 23rem;
 
   border-radius: 1rem;
   background-color: $white;
@@ -13,8 +15,8 @@
   -webkit-box-shadow: 1px 6px 25px 3px rgba(0,0,0,0.35);
   -moz-box-shadow: 1px 6px 25px 3px rgba(0,0,0,0.35);
 
-  visibility: hidden;
-  opacity: 0;
+  // visibility: hidden;
+  // opacity: 0;
   transition: all 0.3s;
   z-index: 100;
 
@@ -30,7 +32,7 @@
     max-width: 100rem;
     min-width: 100rem;
     position: fixed;
-    // top: 15%;
+    top: 10%;
     // transform: translateX(-50%);
     top: 50%;
     transform: translate(-50%, -50%);
@@ -86,6 +88,7 @@
     border: 0.1px solid $sub-gray;
     padding: 1rem;
     width: 20rem;
+    transition: all 0.3s;
 
     @include respond(screen-480) {
       width: 25rem;
@@ -112,9 +115,9 @@
 
   &--upload {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 3rem 0 4rem 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+    margin: 3rem auto 4rem auto;
 
     & span {
       position: relative;
@@ -132,7 +135,7 @@
   backdrop-filter: blur(0.4rem);
   z-index: 90;
   transition: all 0.3s;
-  visibility: hidden;
-  opacity: 0;
+  // visibility: hidden;
+  // opacity: 0;
   
 }

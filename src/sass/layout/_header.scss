@@ -110,7 +110,6 @@
           & .bookmarks-preview {
             visibility: visible;
             opacity: 1;
-            z-index: 10;
           }
         }
       }
@@ -133,7 +132,8 @@
   background-color: $background-light;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.3s 0.2s;
+  z-index: 30;
+  transition: all 0.2s 0.2s;
   
   @include respond(screen-620) {
     top: 10.5rem;
@@ -155,11 +155,11 @@
       }
     }
 
-    &__message {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
+    // &__message {
+    //   display: flex;
+    //   gap: 1.5rem;
+    //   align-items: center;
+    // }
   }
 }
 

@@ -2,11 +2,24 @@
   background-color: $background-mid;
   .container {
     padding: 3.5rem 2.5rem;
+    // min-height: 85rem;
   }
 
   .servings {
     padding-top: 6rem;
   }
+
+  // .message {
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-content: center;
+  //   align-items: center;
+  //   column-gap: 1rem;
+
+  //   @include respond(screen-560) {
+  //     justify-content: center;
+  //   }
+  // }
 
   &__header {
     text-align: center;
@@ -14,21 +27,6 @@
   }
 }
 
-.message { // starting message when there is no loaded recipe yet
-  min-height: 85rem;
-  
-  div {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    column-gap: 1rem;
-
-    @include respond(screen-560) {
-      justify-content: center;
-    }
-  }
-}
 
 .banner {
   position: relative;
