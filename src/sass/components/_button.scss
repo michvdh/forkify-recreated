@@ -9,7 +9,7 @@
 
   // -------- General --------
   &--inactive {
-    cursor: none;
+    cursor: default;
     border-radius: 10rem;
     background-color: $background-dark;
   }
@@ -19,7 +19,7 @@
 
     &--big {
       background: $gradient-complete;
-      padding: 0.85rem 2.5rem;
+      padding: 1.5rem 2.5rem;
       
     }
 
@@ -41,9 +41,6 @@
   }
 
   & .text {
-    // position: relative;
-    // top: -0.4rem;
-
     &--left {
       margin-left: 0.6rem;
     }
@@ -55,8 +52,11 @@
   }
 
   &--page {
+    transition: all 0.3s;
+
     &:hover {
       background-color: $background-dark;
+      transition: all 0.3s;
     }
     .text--pagination { top: -0.1rem; }
   }
@@ -89,6 +89,7 @@
     position: relative;
     height: 100%;
     padding: 0 3rem;
+    transition: all 0.3s;
 
     @include respond(screen-620) {
       padding: 0.85rem 3rem;
@@ -98,10 +99,19 @@
       padding: 0.85rem 4rem;
     }
 
+    &:hover {
+      transform: scale(1.05);
+    }
+
   }
   
   &--servings { // + and - buttons
     background: none;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
   }
 
   &--user, &--add-bookmark {
@@ -115,6 +125,27 @@
 
   &--add-bookmark {
     margin-left: 1.2rem;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &--directions {
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &--upload {
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &--close { // close button for Upload form

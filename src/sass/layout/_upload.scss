@@ -1,11 +1,12 @@
 .upload {
   position: absolute;
-  top: 10%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
 
   padding: 1.5rem 1rem;
   width: 95%;
+  min-height: 23rem;
 
   border-radius: 1rem;
   background-color: $white;
@@ -13,8 +14,6 @@
   -webkit-box-shadow: 1px 6px 25px 3px rgba(0,0,0,0.35);
   -moz-box-shadow: 1px 6px 25px 3px rgba(0,0,0,0.35);
 
-  visibility: hidden;
-  opacity: 0;
   transition: all 0.3s;
   z-index: 100;
 
@@ -30,34 +29,29 @@
     max-width: 100rem;
     min-width: 100rem;
     position: fixed;
-    // top: 15%;
-    // transform: translateX(-50%);
+    top: 10%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
 
-  &__form {
-    & > div {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-      width: 90%;
-      row-gap: 3rem;
 
-      @include respond(screen-480) {
-        width: 80%;
-      }
+  &__div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+    row-gap: 3rem;
 
-      @include respond(screen-1024) {
-        flex-direction: row;
-        width: 100%;
-      }
-
-      // flex-direction: row;
-      // gap: 5%;
-      // justify-content: space-around;
+    @include respond(screen-480) {
+      width: 80%;
     }
-  }
+
+    @include respond(screen-1024) {
+      flex-direction: row;
+      width: 100%;
+    }
+  }   
+
 
   &__list {
     margin: 0 auto; // set to margin:0 on bigger devices
@@ -70,6 +64,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
+      justify-content: center;
 
       & .text {
         width: 10rem;
@@ -86,12 +81,13 @@
     border: 0.1px solid $sub-gray;
     padding: 1rem;
     width: 20rem;
+    transition: all 0.3s;
 
     @include respond(screen-480) {
       width: 25rem;
     }
 
-    @include respond(screen-560) {
+    @include respond(screen-620) {
       width: 30rem;
     }
 
@@ -112,9 +108,7 @@
 
   &--upload {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 3rem 0 4rem 0;
+    margin: 3rem auto 4rem auto;
 
     & span {
       position: relative;
@@ -132,7 +126,9 @@
   backdrop-filter: blur(0.4rem);
   z-index: 90;
   transition: all 0.3s;
-  visibility: hidden;
-  opacity: 0;
-  
+}
+
+.invalid-input {
+  border: 0.1rem solid #c2255c;
+  background-color: #ffdeeb;
 }

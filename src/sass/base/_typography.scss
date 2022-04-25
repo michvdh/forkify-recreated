@@ -6,13 +6,23 @@ html {
   color: $main-black;
 }
 
+a {
+  text-decoration: none;
+}
+
 .text {
   font-size: 1.5rem;
+
+  &--right {
+    color: $white;
+  }
 }
 
 .btn {
   text-transform: uppercase;
   color: $main-black;
+  font-family: inherit;
+  font-weight: 600;
 
   &--page {
     & .text--pagination {
@@ -43,6 +53,7 @@ html {
 
 
 
+
 // ----------- Search Results -----------
 
 .result {
@@ -53,12 +64,14 @@ html {
     }
 
     &__name {
+      font-size: 15px;
       color: $accent;
     }
 
     &__author {
       color: $sub-black;
-      font-size: 1.1rem;
+      font-size: 11px;
+      text-align: left;
     }
   }
 
@@ -78,7 +91,6 @@ html {
 .header {
   &__container--nav .text {
     text-transform: uppercase;
-    // font-weight: 400;
   }
 
   .search__field {
@@ -90,14 +102,25 @@ html {
   }
 }
 
-.bookmarks-preview {
-  span {
-    // font-size: 1.3rem;
-    font-weight: 400;
-    // text-transform: initial;
-    text-align: left;
-  }
-}
+// .bookmarks-preview {
+//   .result__item {
+//     &__desc {
+//       font-weight: 400;
+//       text-transform: uppercase;
+//       text-align: left;
+//     }
+
+//     &__name {
+//       color: $accent;
+//       font-size: 1.5rem;
+//     }
+
+//     &__author {
+//       color: $sub-black;
+//       font-size: 1.1rem;
+//     }
+//   }
+// }
 
 
 // ----------- Recipe -----------
@@ -122,13 +145,6 @@ html {
   font-size: 2rem;
 }
 
-.message {
-  span {
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-}
-
 
 // ----------- Upload -----------
 .upload {
@@ -142,5 +158,14 @@ html {
     & .text{
       font-weight: 600;
     }
+  }
+}
+
+
+.message {
+  span {
+    text-transform: initial !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
   }
 }

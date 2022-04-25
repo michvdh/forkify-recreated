@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forkify Recreated</title>
-  <link rel="stylesheet" href="src/sass/main.scss">
-  <link rel="shortcut icon" href="src/img/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script type="module" src="src/js/views/basicTransitions.js" defer></script>
-  <script type="module" src="src/js/controller.js" defer></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forkify Recreated</title>
+    <link rel="stylesheet" href="src/sass/main.scss">
+    <link rel="shortcut icon" href="src/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="src/js/controller.js" defer></script>
+  </head>
 
 <body>
   <div class="app-container shadow">
@@ -50,10 +49,9 @@
               <use href="src/img/icons.svg#icon-bookmark"></use>
             </svg>
             <span class="btn--bookmarks__text text">Bookmarks</span>
-
-            <div class="bookmarks-preview shadow">
-              <ul class="bookmarks-preview__list">
-                <li class="bookmarks-preview__list--empty hidden">
+            <div class="bookmarks-preview shadow result__items">
+              <!-- <ul class="bookmarks-preview__list result__list">
+                <li class="bookmarks-preview__list--empty">
                   <div class="bookmarks-preview__list__message">
                     <svg class="icon--large icon--accent">
                       <use href="src/img/icons.svg#icon-alert-triangle"></use>
@@ -61,21 +59,16 @@
                     <span>No bookmarks yet. Find a nice recipe and bookmark it :)</span>
                   </div>
                 </li>
-                <li class="result__item container result__item--test">
-                  <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc">
-                    <span class="text result__item__name">Homemade Pizzaaa asdasdas asdasdas</span>
-                    <span class="text result__item__author">Simply Recipes</span>
-                  </div>
+                <li class="result__item res__item">
+                  <a class="result__item__link res__item container" href="#">
+                    <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
+                    <div class="result__item__desc">
+                      <span class="text result__item__name">Homemade Pizzaaa asdasdas asdasdas</span>
+                      <span class="text result__item__author">Simply Recipes</span>
+                    </div>
+                  </a>
                 </li>
-                <li class="result__item container">
-                  <img class="result__item__logo" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc">
-                    <span class="text result__item__name">Homemade Pizza</span>
-                    <span class="text result__item__author">Simply Recipes</span>
-                  </div>
-                </li>
-              </ul>
+              </ul> -->
             </div>
           </button>
         </div>
@@ -86,97 +79,35 @@
         <section class="result">
           <div class="result__main">
             <!-- Loading icon -->
-            <div class="spinner spinner--search hidden">
-              <!-- css is in base.scss -->
+            <!-- <div class="spinner spinner--search">
               <svg class="icon icon--accent icon--xl">
                 <use href="src/img/icons.svg#icon-loader"></use>
               </svg>
-            </div>
-            <div class="message hidden">
+            </div> -->
+            <!-- <div class="message hidden">
               <svg class="icon icon--accent  icon--large">
                 <use href="src/img/icons.svg#icon-alert-triangle"></use>
               </svg>
               <span class="text">No recipes found for your query! Please try again ;)</span>
-            </div>
-            <!-- Search result -->
+            </div> -->
+            <!-- Search result -->  
             <div class="result__items">
-              <ul class="result__list">
-                <li class="result__item container result__item--test res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizzaaa asdasdas asdasdas</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-                <li class="result__item container res__item">
-                  <img class="result__item__logo res__item" src="src/img/favicon.png" alt="item logo">
-                  <div class="result__item__desc res__item">
-                    <span class="text result__item__name res__item">Homemade Pizza</span>
-                    <span class="text result__item__author res__item">Simply Recipes</span>
-                  </div>
-                </li>
-              </ul>
+              <!-- <ul class="result__list">
+                <li class="result__item res__item">
+                  <a class="result__item__link res__item container" href="#${recipe.id}">
+                    <img class="result__item__logo res__item" src="${recipe.imageUrl}" alt="item logo">
+                    <div class="result__item__desc res__item">
+                      <span class="text result__item__name res__item">${recipe.title}</span>
+                      <span class="text result__item__author res__item">${recipe.publisher}</span>
+                    </div>
+                  </a>
+                </li>  
+              </ul> -->
             </div>
           </div>
           <!-- Pagination -->
           <div class="result__pagination container">
-            <button class="btn btn--page btn--rounded btn--rounded--small btn--prev">
+            <!-- <button class="btn btn--page btn--rounded btn--rounded--small btn--prev">
               <svg class="icon icon--accent icon--xs">
                 <use href="src/img/icons.svg#icon-arrow-left"></use>
               </svg>
@@ -187,7 +118,7 @@
               <svg class="icon icon--accent icon--xs">
                 <use href="src/img/icons.svg#icon-arrow-right"></use>
               </svg>
-            </button>
+            </button> -->
           </div>
           <!-- Copyright -->
           <div class="result__copyright container">
@@ -197,27 +128,26 @@
           </div>
         </section>
         <section class="recipe">
-          <section class="message container hidden">
-            <div>
-              <svg class="icon icon--accent  icon--large">
+          <section class="container">
+            <div class="message">
+              <svg class="icon icon--accent icon--large">
                 <use href="src/img/icons.svg#icon-smile"></use>
               </svg>
-              <span class="text">Start by searching for a recipe or an ingredient. Have fun!</span>
+              <span>Start by searching for a recipe or an ingredient. Have fun!</span>
             </div>
           </section>
+
           <!-- Loading icon -->
-          <div class=" spinner spinner--recipe hidden">
-            <!-- css is in base.scss -->
+          <!-- <div class="spinner spinner--recipe">
             <svg class="icon icon--accent icon--xl">
               <use href="src/img/icons.svg#icon-loader"></use>
             </svg>
-          </div>
-          <section class="banner">
-            <!-- <div style="background-image: url('src/img/pizza-temp.jpeg');"> -->
+          </div> -->
+
+          <!-- <section class="banner">
             <figure>
               <img src="src/img/pizza-temp.jpeg" alt="">
               <h1><span class="text banner__text">CAULIFLOWER PIZZA CRUST (WITH BBQ CHICKEN PIZZA)</span></h1>
-              <!-- <h1><span class="text banner__text">Homemade Pizza</span></h1> -->
             </figure>
           </section>
           <section class="servings container">
@@ -249,7 +179,7 @@
               <div class="servings__nav">
                 <button class="btn btn--inactive btn--user">
                   <svg class="icon icon--dark icon--med">
-                    <use href="src/img/icons.svg#icon-user"></use> <!-- show this only if recipe is uploaded by a user -->
+                    <use href="src/img/icons.svg#icon-user"></use>
                   </svg>
                 </button>
                 <button class="btn btn--circle btn--add-bookmark">
@@ -303,43 +233,43 @@
                 </svg>
               </button>
             </div>
-          </section>
+          </section> -->
         </section>
       </div>
       <!-- Upload form -->
-      <div class="overlay"></div>
-      <section class="upload container">
+      <div class="overlay invisible"></div>
+      <section class="upload container invisible">
         <div>
+          <button class="btn btn--close">×</button>
           <form class="upload__form" action="#">
-            <button class="btn btn--close">×</button>
-            <div>
+            <!-- <div class="upload__div">
               <ul class="upload__list">
                 <li>
                   <h3 class="upload__list__header">Recipe Data</h3>
                 </li>
                 <li>
                   <label class="text" for="upload-title">Title</label>
-                  <input class="upload__input-field" type="text" id="upload-title" value="test23">
+                  <input class="upload__input-field" name="title" type="text" id="upload-title">
                 </li>
                 <li>
                   <label class="text" for="upload-url">URL</label>
-                  <input class="upload__input-field" type="text" id="upload-url" value="test23">
+                  <input class="upload__input-field" name="url" type="text" id="upload-url">
                 </li>
                 <li>
                   <label class="text" for="upload-img-url">Image URL</label>
-                  <input class="upload__input-field" type="text" id="upload-img-url" value="test23">
+                  <input class="upload__input-field" name="imageURL" type="text" id="upload-img-url">
                 </li>
                 <li>
                   <label class="text" for="upload-publisher">Publisher</label>
-                  <input class="upload__input-field" type="text" id="upload-publisher" value="test23">
+                  <input class="upload__input-field" name="publisher" type="text" id="upload-publisher">
                 </li>
                 <li>
                   <label class="text" for="upload-prep-time">Prep time</label>
-                  <input class="upload__input-field" type="number" id="upload-prep-time" value="test23">
+                  <input class="upload__input-field"name="prepTime"  type="number" id="upload-prep-time" min="1">
                 </li>
                 <li>
                   <label class="text" for="upload-servings">Servings</label>
-                  <input class="upload__input-field" type="number" type="text" id="upload-servings" value="test23">
+                  <input class="upload__input-field" type="number" type="text" id="upload-servings" name="servings"  min="1">
                 </li>
               </ul>
               <ul class="upload__list">
@@ -348,30 +278,30 @@
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient1">Ingredient 1</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient1" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient1" placeholder="0.5,kg,Rice" name="ingredient-1">
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient2">Ingredient 2</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient2" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient2" placeholder="0.5,kg,Rice" name="ingredient-2">
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient3">Ingredient 3</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient3" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient3" placeholder="0.5,kg,Rice" name="ingredient-3">
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient4">Ingredient 4</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient4" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient4" name="ingredient-4" placeholder="0.5,kg,Rice">
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient5">Ingredient 5</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient5" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient5" name="ingredient-5" placeholder="0.5,kg,Rice">
                 </li>
                 <li>
                   <label class="text" for="upload-ingredient6">Ingredient 6</label>
-                  <input class="upload__input-field" type="text" id="upload-ingredient6" placeholder="0.5,kg,Rice">
+                  <input class="upload__input-field" type="text" id="upload-ingredient6" name="ingredient-6" placeholder="0.5,kg,Rice">
                 </li>
               </ul>
-            </div>
+            </div> -->
             <button class="btn btn--rounded btn--rounded--big btn--upload">
               <svg class="icon icon--white icon--med">
                 <use href="src/img/icons.svg#icon-upload-cloud"></use>
