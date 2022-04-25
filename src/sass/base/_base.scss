@@ -28,11 +28,15 @@ body {
 main {
   background-color: $background-mid;
   position: relative;
-  min-height: 108rem;
+  min-height: 105rem;
   transition: all 0.5s;
 
   @include respond(screen-620) {
-    min-height: 115rem;
+    min-height: 112rem;
+  }
+
+  @include respond(screen-1024) {
+    min-height: initial;
   }
 
   .contents {
@@ -92,18 +96,19 @@ ul {
   text-align: center;
   display: flex;
   justify-content: center;
+  padding-top: 3rem;
 
   svg {
     animation: spinner 3s linear infinite;
   }
 
-  &--search {
-    padding-top: 4rem;
-  }
+  // &--search {
+  //   padding-top: 4rem;
+  // }
 
-  &--recipe {
-    padding-top: 7rem;
-  }
+  // &--recipe {
+  //   padding-top: 7rem;
+  // }
 }
 
 .message {

@@ -5,21 +5,21 @@ export default class View {
 
   renderSpinner() {
     const markup = `
-    <div class="spinner spinner--recipe">
+    <div class="spinner">
       <svg class="icon icon--accent icon--xl">
         <use href="${icons}#icon-loader"></use>
       </svg>
     </div>
     `; 
 
-    this._parentElement.innerHTML = '';
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
 
   updateHTML(data) {
-    this._data = data;
-    this._parentElement.innerHTML = '';
+    data ? this._data = data : '';
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', this._generateMarkup(data));
   }
 
@@ -44,6 +44,25 @@ export default class View {
         Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value));
       }
     });
+  }
+  
+  renderErrorMessage(error) {
+    const markup = `
+    <div class="message">
+      <svg class="icon icon--accent  icon--large">
+        <use href="${icons}#icon-alert-triangle"></use>
+      </svg>
+      <span class="text">${error}</span>
+    </div>
+    `;
+
+    this._clear();
+    this._parentElement.insertAdjacentHTML(`afterbegin`, markup);
+  }
+
+
+  _clear() {
+    this._parentElement.innerHTML = '';
   }
 
 

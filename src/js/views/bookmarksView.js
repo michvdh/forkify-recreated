@@ -16,19 +16,6 @@ class BookmarksView extends View {
     });
   }
 
-  // this function loads the recipe on center page when an item is clicked from bookmarks list
-  // setBookmarkLoadRecipeHandler(handler) {
-  //   this._parentElement.addEventListener('click', (e) => {
-  //     const bookmarkedRecipe = e.target.closest('.result__item');
-
-  //     if(!bookmarkedRecipe) return;
-
-  //     const targetRecipeID = e.target.closest('.result__item__link').getAttribute('href').substring(1);
-
-  //     handler(targetRecipeID);
-  //   });
-  // }
-
   _generateMarkup() {
     return `
     <ul class="bookmarks-preview__list result__list">

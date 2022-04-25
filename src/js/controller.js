@@ -14,28 +14,35 @@ const controlRecipes = async function(targetRecipeID) {
     await model.loadRecipeData(targetRecipeID);
     recipeView.updateHTML(model.state.recipe);
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
-    // searchResultView.highlightActiveRecipe(model.state.recipe.id);
 
   } catch(err) {
-
+    console.log(err);
+    throw err;
   }
 }
 
 
 const controlSearchResult = async function(searchInput) {
-  searchResultView.renderSpinner();
-  await model.loadAllSearchResult(searchInput);
+  try {
+    searchResultView.renderSpinner();
 
-  const currentPage = model.state.search.currentPage;
-  const totalPages = model.state.search.totalPages;
+    await model.loadAllSearchResult(searchInput);
+  
+    const currentPage = model.state.search.currentPage;
+    const totalPages = model.state.search.totalPages;
 
-  if(totalPages > 0) {
-    searchResultView.updateHTML(model.loadSearchResultDisplay());
-    paginationView.updateHTML(currentPage, totalPages);
-    paginationView.btnHandler(currentPage, controlPagination);
-    searchResultView.renderSliderAndIngredients(controlRecipes);
-  } else {
-    searchResultView.renderErrorMessage();
+    if(totalPages > 0) {
+      searchResultView.updateHTML(model.loadSearchResultDisplay());
+      paginationView.updateHTML(currentPage, totalPages);
+      paginationView.btnHandler(currentPage, controlPagination);
+      searchResultView.renderSliderAndIngredients(controlRecipes);
+    } else {
+      searchResultView.renderErrorMessage();
+    }
+
+  } catch(err) {
+    console.log(err);
+    throw err;    
   }
 }
 
@@ -61,25 +68,36 @@ const controlAddBookmarks = function() {
   bookmarksView.renderSliderAndIngredients(controlRecipes);
 }
 
+
 const controlBookmarksInitLocalStorage = function() {
   // for some reason, state.recipe keeps getting a "bookmarked: true" value. We're using this function to clear the content of state.recipe
   model.state.recipe = {}
   bookmarksView.updateHTML(model.state.bookmarks);
 }
 
+
 const controlUploadRecipe = async function(data) {
-  uploadView.renderSpinner();
-  await model.addRecipe(data);
-  recipeView.updateHTML(model.state.recipe);
-  bookmarksView.updateHTML(model.state.bookmarks);
+  try {
+    uploadView.renderSpinner();
 
-  const uploadIndicator = document.querySelector('.upload-indicator');
+    await model.addRecipe(data);
 
-  uploadIndicator.classList.remove('invisible');
+    recipeView.updateHTML(model.state.recipe);
+    bookmarksView.updateHTML(model.state.bookmarks);
+  
+    // used to show the "person" icon as indicator that a recipe was uploaded
+    const uploadIndicator = document.querySelector('.upload-indicator');
+    uploadIndicator.classList.remove('invisible');
+  
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+    uploadView.renderMessage();
+    setTimeout(uploadView.toggleUploadWindow, 900);
 
-  window.history.pushState(null, '', `#${model.state.recipe.id}`);
-  uploadView.renderMessage();
-  setTimeout(uploadView.toggleUploadWindow, 1000);
+  } catch(err) {
+    console.log(`🤷‍♀️🤷‍♀️🤷‍♀️ ${err}`);
+    uploadView.renderErrorMessage(err);
+    throw err;
+  }
 }
 
 
@@ -89,7 +107,6 @@ const init = function() {
   recipeView.updateServings(controlServings);
   bookmarksView.setBookmarkHandler(controlAddBookmarks);
   bookmarksView.renderSliderAndIngredients(controlRecipes);
-  // uploadView.setUploadDisplayHander();
   uploadView.setFormSubmitHandler(controlUploadRecipe);
 }
 

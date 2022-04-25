@@ -4,6 +4,7 @@ import View from './View';
 
 class SearchResultView extends View {
   _parentElement = document.querySelector('.result .result__items');
+  _paginationSection = document.querySelector('.result__pagination');
 
   getSearchInput(render) {
     const searchBtn = document.querySelector('.btn--search');
@@ -59,7 +60,7 @@ class SearchResultView extends View {
         <span>No recipes found for your query! Please try again ;)</span>
       </div>`;
 
-    this._parentElement.innerHTML = '';
+    this._clear();
     paginationSection.innerHTML = '';
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }

@@ -37,7 +37,9 @@ export const loadRecipeData = async function (targetRecipeID) {
     const res = await fetch(`${API_URL}${targetRecipeID}?key=${KEY}`);
     const data = await res.json();
     const recipe = formatRecipeData(data.data);
+
     state.recipe = recipe;
+
     if (state.bookmarks.some(bookmark => bookmark.id === targetRecipeID)) state.recipe.bookmarked = true;
 
   } catch (err) {
