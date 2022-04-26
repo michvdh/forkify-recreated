@@ -108,6 +108,7 @@ const init = function() {
   bookmarksView.setBookmarkHandler(controlAddBookmarks);
   bookmarksView.renderSliderAndIngredients(controlRecipes);
   uploadView.setFormSubmitHandler(controlUploadRecipe);
+  console.log("Welcome to Forkify Recreated");
 }
 
 init();
