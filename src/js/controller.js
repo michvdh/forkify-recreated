@@ -6,7 +6,7 @@ import bookmarksView from './views/bookmarksView.js';
 import uploadView from './views/uploadView.js';
 
 // import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+// import 'regenerator-runtime/runtime';
 
 const controlRecipes = async function(targetRecipeID) {
   try {
