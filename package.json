@@ -2,10 +2,10 @@
   "name": "forkify-recreated",
   "version": "1.0.0",
   "description": "Recreated forkify project for learning purposes. The forkify project is part of Jonas' JavaScript course.",
-  "main": "index.js",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Michael Hingpit",
   "license": "ISC",
