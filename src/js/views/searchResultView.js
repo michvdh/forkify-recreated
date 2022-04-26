@@ -1,4 +1,5 @@
-import icons from 'url:../../img/icons.svg';
+// import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 import { updateCurrentPage } from '../model';
 import View from './View';
 
