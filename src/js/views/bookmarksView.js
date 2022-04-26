@@ -1,5 +1,4 @@
-// import icons from 'url:../../img/icons.svg';
-import icons from '../../img/icons.svg';
+import icons from 'url:../../img/icons.svg';
 import View from './View';
 
 class BookmarksView extends View {

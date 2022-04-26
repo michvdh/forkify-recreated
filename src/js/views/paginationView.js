@@ -1,5 +1,4 @@
-// import icons from 'url:../../img/icons.svg';
-import icons from '../../img/icons.svg';
+import icons from 'url:../../img/icons.svg';
 
 class PaginationView {
   _generateMarkup(currentPage, totalPages) {
