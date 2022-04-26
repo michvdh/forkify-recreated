@@ -5,7 +5,7 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import uploadView from './views/uploadView.js';
 
-import 'core-js/stable';
+// import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 const controlRecipes = async function(targetRecipeID) {
